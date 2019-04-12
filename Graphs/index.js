@@ -73,6 +73,34 @@ function createGraph(directed = false) {
       }
     },
 
+    // Depth first search
+    dfs(startKey, visitFn) {
+      const startingNode = this.getNode(startKey);
+
+      const visited = nodes.reduce(
+        (acc, node) => ({
+          ...acc,
+          [node.key]: false,
+        }),
+        {},
+      );
+
+      function explore(node) {
+        if (visited[node.key]) {
+          return;
+        }
+
+        visitFn(node);
+        visited[node.key] = true;
+
+        node.neighbours.forEach(node => {
+          explore(node);
+        });
+      }
+
+      explore(startingNode);
+    },
+
     print() {
       return nodes.map(({ key, neighbours }) => {
         let result = key;

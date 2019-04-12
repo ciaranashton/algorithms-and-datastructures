@@ -55,4 +55,35 @@ describe('Graph', () => {
       i++;
     });
   });
+
+  it('depth first search', () => {
+    const graph = createGraph(true);
+    const nodes = ['a', 'b', 'c', 'd', 'e', 'f'];
+    const edges = [
+      ['a', 'b'],
+      ['a', 'e'],
+      ['a', 'f'],
+      ['b', 'd'],
+      ['b', 'e'],
+      ['c', 'b'],
+      ['d', 'c'],
+      ['d', 'e'],
+    ];
+
+    nodes.forEach(node => {
+      graph.addNode(node);
+    });
+
+    edges.forEach(nodes => {
+      graph.addEdge(...nodes);
+    });
+
+    const order = ['a', 'b', 'd', 'c', 'e', 'f'];
+    let i = 0;
+
+    graph.dfs('a', node => {
+      expect(node.key).to.equal(order[i]);
+      i++;
+    });
+  });
 });
