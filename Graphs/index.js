@@ -45,14 +45,7 @@ function createGraph(directed = false) {
     // Breadth first search
     bfs(startKey, visitFn) {
       const startingNode = this.getNode(startKey);
-
-      const visited = nodes.reduce(
-        (acc, node) => ({
-          ...acc,
-          [node.key]: false,
-        }),
-        {},
-      );
+      const visited = new Set();
 
       const q = createQueue();
       q.enqueue(startingNode);
@@ -60,13 +53,13 @@ function createGraph(directed = false) {
       while (!q.isEmpty()) {
         const currentNode = q.dequeue();
 
-        if (!visited[currentNode.key]) {
+        if (!visited.has(currentNode.key)) {
           visitFn(currentNode);
-          visited[currentNode.key] = true;
+          visited.add(currentNode.key);
         }
 
         currentNode.neighbours.forEach(node => {
-          if (!visited[node.key]) {
+          if (!visited.has(node.key)) {
             q.enqueue(node);
           }
         });
@@ -76,22 +69,13 @@ function createGraph(directed = false) {
     // Depth first search
     dfs(startKey, visitFn) {
       const startingNode = this.getNode(startKey);
-
-      const visited = nodes.reduce(
-        (acc, node) => ({
-          ...acc,
-          [node.key]: false,
-        }),
-        {},
-      );
+      const visited = new Set();
 
       function explore(node) {
-        if (visited[node.key]) {
-          return;
-        }
+        if (visited.has(node.key)) return;
 
         visitFn(node);
-        visited[node.key] = true;
+        visited.add(node.key);
 
         node.neighbours.forEach(node => {
           explore(node);
