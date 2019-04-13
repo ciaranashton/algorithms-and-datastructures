@@ -1,4 +1,4 @@
-const createGraph = require('../Graphs');
+const createGraph = require('../../js-datastructures/Graphs');
 const { expect } = require('chai');
 
 describe('Graph', () => {

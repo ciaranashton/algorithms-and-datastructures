@@ -1,4 +1,4 @@
-const createStack = require('../Stack');
+const createStack = require('../../js-datastructures/Stack');
 const { expect } = require('chai');
 
 describe('Stack', () => {

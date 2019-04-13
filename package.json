@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
-    "test:watch": "mocha --watch"
+    "test": "mocha --recursive",
+    "test:watch": "mocha --recursive --watch"
   },
   "keywords": [],
   "author": "",

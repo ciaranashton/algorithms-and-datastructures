@@ -1,11 +1,11 @@
-const createLinkedList = require('../LinkedList');
+const createLinkedList = require('../../js-datastructures/LinkedList');
 const { expect } = require('chai');
 
 describe('Linked List', () => {
   it('plan one', () => {
     const list = createLinkedList();
     const values = ['a', 'b', 'c', 'd', 'e', 'f'];
-    const nodes = values.map(val => list.push(val));
+    values.map(val => list.push(val));
 
     expect(list.print()).to.equal('a => b => c => d => e => f');
 
