@@ -39,13 +39,9 @@ describe('Graph', () => {
       ['d', 'e'],
     ];
 
-    nodes.forEach(node => {
-      graph.addNode(node);
-    });
+    nodes.map(node => graph.addNode(node));
 
-    edges.forEach(nodes => {
-      graph.addEdge(...nodes);
-    });
+    edges.map(nodes => graph.addEdge(...nodes));
 
     const order = ['a', 'b', 'e', 'f', 'd', 'c'];
     let i = 0;
@@ -70,13 +66,9 @@ describe('Graph', () => {
       ['d', 'e'],
     ];
 
-    nodes.forEach(node => {
-      graph.addNode(node);
-    });
+    nodes.map(node => graph.addNode(node));
 
-    edges.forEach(nodes => {
-      graph.addEdge(...nodes);
-    });
+    edges.map(nodes => graph.addEdge(...nodes));
 
     const order = ['a', 'b', 'd', 'c', 'e', 'f'];
     let i = 0;
