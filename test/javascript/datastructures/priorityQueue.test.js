@@ -1,4 +1,4 @@
-const createPriorityQueue = require('../../js-datastructures/PriorityQueue');
+const createPriorityQueue = require('../../../javascript/datastructures/PriorityQueue');
 const { expect } = require('chai');
 
 describe('Priority Queue', () => {

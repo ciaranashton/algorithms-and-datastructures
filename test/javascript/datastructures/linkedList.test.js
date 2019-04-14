@@ -1,4 +1,4 @@
-const createLinkedList = require('../../js-datastructures/LinkedList');
+const createLinkedList = require('../../../javascript/datastructures/LinkedList');
 const { expect } = require('chai');
 
 describe('Linked List', () => {
