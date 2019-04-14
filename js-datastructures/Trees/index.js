@@ -58,5 +58,3 @@ const h1 = header.addChild('h1 - Tree Time');
 const h1_2 = main.addChild('h1 - Title to the page');
 const p = main.addChild('p - Talk about trees!');
 const copyright = footer.addChild(`Copyright ${new Date().getFullYear()}`);
-
-console.log(dom.print())
