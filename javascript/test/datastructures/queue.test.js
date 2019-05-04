@@ -1,4 +1,4 @@
-const createQueue = require('../../../javascript/datastructures/Queue');
+const createQueue = require('../../datastructures/Queue');
 const { expect } = require('chai');
 
 describe('Queue', () => {

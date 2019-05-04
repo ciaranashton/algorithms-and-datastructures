@@ -1,5 +1,5 @@
-const bubbleSort = require('../../../javascript/algorithms/BubbleSort');
-const insertionSort = require('../../../javascript/algorithms/InsertionSort');
+const bubbleSort = require('../../algorithms/BubbleSort');
+const insertionSort = require('../../algorithms/InsertionSort');
 const { expect } = require('chai');
 
 describe('Sorting Algorithms', () => {

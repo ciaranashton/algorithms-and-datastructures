@@ -1,4 +1,4 @@
-const createBinaryTrue = require('../../../javascript/datastructures/Trees/binary');
+const createBinaryTrue = require('../../datastructures/Trees/binary');
 const { expect } = require('chai');
 
 describe('Binary Tree', () => {
