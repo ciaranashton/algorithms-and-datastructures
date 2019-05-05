@@ -46,17 +46,20 @@ export class Graph {
         const startNode = this.getNode(key1);
         const endNode = this.getNode(key2);
 
-        this.edges.set(`${key1}-${key2}`, weight);
+        const [sort1, sort2] = [key1, key2].sort((a, b) =>
+            a.localeCompare(b),
+        );
+        this.edges.set(`${sort1}-${sort2}`, weight);
 
         startNode.addNeighbour(endNode);
         endNode.addNeighbour(startNode);
     }
 
     public getEdge(key1: string, key2: string): number | undefined {
-        return (
-            this.edges.get(`${key1}-${key2}`) ||
-            this.edges.get(`${key2}-${key1}`)
+        const [sort1, sort2] = [key1, key2].sort((a, b) =>
+            a.localeCompare(b),
         );
+        return this.edges.get(`${sort1}-${sort2}`);
     }
 
     private findLowest(
