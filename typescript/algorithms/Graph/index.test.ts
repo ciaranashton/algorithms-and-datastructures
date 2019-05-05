@@ -71,31 +71,43 @@ describe('Graph - algorithms', () => {
         expect(g.dijkstra('e')).toEqual(expectedResults);
     });
 
-    //     test('A -> F', () => {
-    //         const expected = ['a', 'c', 'd', 'f'];
-    //         const result = g.findPath('a', 'f');
+    test('A -> F', () => {
+        const expected = ['a', 'c', 'd', 'f'];
+        const result = g.findPath('a', 'f');
 
-    //         expect(result).toEqual(expected);
-    //     });
+        expect(result).toEqual(expected);
+    });
 
-    //     test('A -> H', () => {
-    //         const expected = ['a', 'c', 'd', 'g', 'h'];
-    //         const result = g.findPath('a', 'h');
+    test('A -> H', () => {
+        const expected = ['a', 'c', 'd', 'g', 'h'];
+        const result = g.findPath('a', 'h');
 
-    //         expect(result).toEqual(expected);
-    //     });
+        expect(result).toEqual(expected);
+    });
 
-    //     test('B -> H', () => {
-    //         const expected = ['b', 'd', 'g', 'h'];
-    //         const result = g.findPath('b', 'h');
+    test('B -> H', () => {
+        const expected = ['b', 'd', 'g', 'h'];
+        const result = g.findPath('b', 'h');
 
-    //         expect(result).toEqual(expected);
-    //     });
+        expect(result).toEqual(expected);
+    });
 
-    //     test('H -> D', () => {
-    //         const expected = ['h', 'g', 'd'];
-    //         const result = g.findPath('h', 'd');
+    test('H -> D', () => {
+        const expected = ['h', 'g', 'd'];
+        const result = g.findPath('h', 'd');
 
-    //         expect(result).toEqual(expected);
-    //     });
+        expect(result).toEqual(expected);
+    });
+
+    test('throw error when given unknown source node', () => {
+        expect(() => g.findPath('z', 'd')).toThrowError(
+            'Could not find source node z',
+        );
+    });
+
+    test('throw error when given unknown destination node', () => {
+        expect(() => g.findPath('a', 'z')).toThrowError(
+            'Could not find source node z',
+        );
+    });
 });

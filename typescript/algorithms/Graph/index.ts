@@ -118,4 +118,25 @@ export class Graph {
 
         return results;
     }
+
+    public findPath(source: string, destination: string): string[] {
+        if (!this.nodes.find(({ key }) => key === destination)) {
+            throw new Error(
+                `Could not find source node ${destination}`,
+            );
+        }
+        const results = this.dijkstra(source);
+
+        const buildRoute = (
+            key: string,
+            route: string[],
+        ): string[] => {
+            const { previous } = results[key];
+            return previous === null
+                ? [key, ...route]
+                : buildRoute(previous, [key, ...route]);
+        };
+
+        return buildRoute(destination, []);
+    }
 }
