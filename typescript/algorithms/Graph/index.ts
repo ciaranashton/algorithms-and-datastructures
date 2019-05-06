@@ -72,9 +72,7 @@ export class Graph {
                 val: [string, Result],
             ): [string, Result] =>
                 val[1].distance < acc[1].distance &&
-                !visited.has(val[0])
-                    ? val
-                    : acc,
+                !visited.has(val[0]) ? val : acc,
             ['', { distance: Infinity, previous: null }],
         );
     }
