@@ -72,7 +72,9 @@ export class Graph {
                 val: [string, Result],
             ): [string, Result] =>
                 val[1].distance < acc[1].distance &&
-                !visited.has(val[0]) ? val : acc,
+                !visited.has(val[0])
+                    ? val
+                    : acc,
             ['', { distance: Infinity, previous: null }],
         );
     }
@@ -81,8 +83,8 @@ export class Graph {
         const results: { [key: string]: Result } = {};
         const visited: Set<string> = new Set();
 
-        this.nodes.forEach(node => {
-            results[node.key] = {
+        this.nodes.forEach(({ key }) => {
+            results[key] = {
                 distance: Infinity,
                 previous: null,
             };
@@ -128,15 +130,12 @@ export class Graph {
         }
         const results = this.dijkstra(source);
 
-        const buildRoute = (
-            key: string,
-            route: string[],
-        ): string[] => {
+        function buildRoute(key: string, route: string[]): string[] {
             const { previous } = results[key];
             return previous === null
                 ? [key, ...route]
                 : buildRoute(previous, [key, ...route]);
-        };
+        }
 
         return buildRoute(destination, []);
     }
